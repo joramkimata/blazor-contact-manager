@@ -1,0 +1,83 @@
+@using GameStore.Client.Auth
+
+@inject MyAuthenticationStateProvider AuthenticationStateProvider
+
+@inject ISnackbar Snackbar
+
+<MudDialog Style="width: 490px">
+    <DialogContent>
+        @if (!loading)
+        {
+            <MudText Typo="Typo.h6">Login to your Account!</MudText>
+            <EditForm Model="@LoginData" OnValidSubmit="HandleLogin" OnInvalidSubmit="HandleInvalidSubmit">
+                <DataAnnotationsValidator/>
+                <MudTextField @onfocus="ClearUserNameError" Error="@UserNameError" Style="margin-bottom: 13px" T="string" @bind-Value="@LoginData.Username" Label="Username" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                <MudTextField @onfocus="ClearPasswordError" Error="@PasswordError" Style="margin-bottom: 13px" T="string" @bind-Value="@LoginData.Password" Label="Password" Variant="Variant.Outlined" InputType="InputType.Password" Margin="Margin.Dense"/>
+                <MudButton OnClick="Cancel">Cancel</MudButton>
+                <MudButton ButtonType="ButtonType.Submit" Color="Color.Primary">Login</MudButton>
+            </EditForm>
+        }
+        else
+        {
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 200px">
+                <MudProgressCircular Color="Color.Primary" Style="height:80px;width:80px;" Indeterminate="true"/>
+            </div>
+        }
+    </DialogContent>
+</MudDialog>
+
+@code {
+    public LoginData LoginData { get; set; } = new LoginData();
+
+    private bool UserNameError = false;
+    private bool PasswordError = false;
+
+    private bool loading = false;
+
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; }
+
+    void Cancel() => MudDialog.Cancel();
+
+    private async Task HandleLogin()
+    {
+        loading = true;
+        bool loginSuccess = await AuthenticationStateProvider.LoginAsync(LoginData.Username, LoginData.Password);
+        loading = false;
+
+        if (loginSuccess)
+        {
+            // Redirect to a success page or perform other actions
+            // For example: NavigationManager.NavigateTo("/dashboard");
+            MudDialog.Cancel();
+            Snackbar.Add("Successfully Logged In!", Severity.Success);
+        }
+        else
+        {
+            // Handle login failure (display error message, clear fields, etc.)
+            ClearFields();
+            Snackbar.Add("Invalid User Info ", Severity.Error);
+        }
+    }
+
+    private void HandleInvalidSubmit()
+    {
+        UserNameError = true;
+        PasswordError = true;
+    }
+
+    private void ClearUserNameError()
+    {
+        UserNameError = false;
+    }
+
+    private void ClearPasswordError()
+    {
+        PasswordError = false;
+    }
+
+    private void ClearFields()
+    {
+        LoginData = new();
+    }
+}

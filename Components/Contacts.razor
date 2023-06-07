@@ -1,0 +1,24 @@
+
+@if (contactsData == null)
+{
+    <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
+}
+else
+{
+    @if (contactsData.Data.GetPublicContacts.Count == 0)
+    {
+        <MudAlert Severity="Severity.Info">No Public Contacts yet!</MudAlert>
+    }
+    else
+    {
+        
+    }
+}
+
+
+<AuthorizeView>
+    <Authorized>
+        <MudFab Style="position: absolute;bottom: 60px;right: 20px; " Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add"/>
+    </Authorized>
+</AuthorizeView>
+
