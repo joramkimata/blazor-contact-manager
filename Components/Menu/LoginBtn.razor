@@ -1,0 +1,28 @@
+@using GameStore.Client.Auth
+@inject IDialogService DialogService
+
+@inject MyAuthenticationStateProvider AuthenticationStateProvider
+
+
+<AuthorizeView>
+    <NotAuthorized>
+        <MudButton @onclick="OpenDialog" Variant="Variant.Filled" Color="Color.Primary">Sign In</MudButton>
+    </NotAuthorized>
+    <Authorized>
+        <MudButton @onclick="() => AuthenticationStateProvider.Logout()" Variant="Variant.Filled" Color="Color.Error">Logout</MudButton>
+    </Authorized>
+</AuthorizeView>
+
+
+@code {
+
+
+    private void OpenDialog()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<Login>("", options);
+    }
+
+
+
+}

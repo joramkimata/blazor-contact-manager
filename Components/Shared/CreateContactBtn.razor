@@ -1,0 +1,15 @@
+@inject IDialogService DialogService
+
+<AuthorizeView Roles="CREATE_CONTACT">
+    <Authorized>
+        <MudFab @onclick="OpenContactAddDialog" Style="position: absolute;bottom: 60px;right: 20px; " Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add"/>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    private void OpenContactAddDialog()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<AddContact>("Add new Contact", options);
+    }
+}

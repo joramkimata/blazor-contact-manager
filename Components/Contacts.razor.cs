@@ -12,7 +12,7 @@ namespace GameStore.Client.Components
         [Inject]
         private GraphqlService graphqlService { get; set; }
 
-        private GraphQLResponse<ContactsResponse>? contactsData;
+        private GraphQLResponse<PublicContactsResponse>? contactsData;
 
         protected override async Task OnInitializedAsync()
         {

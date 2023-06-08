@@ -1,0 +1,18 @@
+@using GameStore.Client.Components.Shared
+
+@page "/my-contacts"
+
+
+<MudTable Items="@Contacts" Hover="true" Bordered="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>Phone Number</MudTh>
+        <MudTh>Is Public</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Phone Number">@context.phoneNumber</MudTd>
+        <MudTd DataLabel="Is Public">@context.isPublic</MudTd>
+    </RowTemplate>
+</MudTable>
+
+
+<CreateContactBtn/>

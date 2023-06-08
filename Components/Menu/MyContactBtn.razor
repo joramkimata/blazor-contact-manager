@@ -1,0 +1,21 @@
+@inject NavigationManager NavigationManager
+
+<div style="margin-right: 10px">
+    <AuthorizeView>
+        <Authorized>
+            <MudButton @onclick="HandleMyContact" Variant="Variant.Filled" Color="Color.Primary">My Contacts</MudButton>
+        </Authorized>
+    </AuthorizeView>
+</div>
+
+
+@code {
+
+
+    private void HandleMyContact()
+    {
+        NavigationManager.NavigateTo("my-contacts");
+    }
+    
+
+}

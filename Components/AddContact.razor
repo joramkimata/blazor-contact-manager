@@ -1,0 +1,89 @@
+@using GameStore.Client.Models
+@using GameStore.Client.Components.Shared
+@using GameStore.Client.GraphQl
+
+@inject GraphqlService GraphqlService
+
+@inject NavigationManager NavigationManager
+
+@inject ISnackbar Snackbar
+
+<MudDialog Style="width: 490px">
+    <DialogContent>
+        @if (errorMessage != null)
+        {
+            <MudAlert Style="margin-bottom: 10px" Severity="Severity.Error">@errorMessage</MudAlert>
+        }
+        
+        @if (!Loading)
+        {
+            <EditForm Model="@ContactInput" OnValidSubmit="HandleSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+                <DataAnnotationsValidator/>
+                <MudTextField @onfocus="CliearField" Error="@PhoneError" Style="margin-bottom: 13px" T="string" @bind-Value="@ContactInput.PhoneNumber" Label="Enter Phone Number" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="Cancel">Cancel</MudButton>
+                <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary">Submit</MudButton>
+            </EditForm>
+        }
+        else
+        {
+            <Loading/>
+        }
+
+    </DialogContent>
+</MudDialog>
+
+@code
+{
+    
+    private bool PhoneError;
+
+    private bool Loading = false;
+
+    [CascadingParameter]
+    MudDialogInstance MudDialog { get; set; }
+
+    void Cancel() => MudDialog.Cancel();
+
+    private string? errorMessage;
+
+    private ContactInput ContactInput { get; set; } = new();
+
+ 
+
+    private void HandleInvalidSubmit()
+    {
+        PhoneError = true;
+    }
+
+    private async Task HandleSubmit()
+    {
+        Loading = true;
+        var graphQlResponse = await GraphqlService.CreateContact(new GraphQl.Inputs.ContactInput() { phoneNumber = ContactInput.PhoneNumber });
+        Loading = false;
+        
+        if (graphQlResponse.Errors != null)
+        {
+            
+            errorMessage = graphQlResponse.Errors[0].Extensions["code"].ToString() == "BAD_USER_INPUT" ? "phoneNumber must be longer than or equal to 10 characters" : graphQlResponse.Errors[0].Message;
+            PhoneError = true;
+            
+        }
+        else
+        {
+            errorMessage = null;
+            CliearField();
+            Snackbar.Add("Successfully Contact created!", Severity.Success);
+            NavigationManager.NavigateTo("my-contacts");
+            
+        }
+        
+
+    }
+
+    private void CliearField()
+    {
+        PhoneError = false;
+    }
+
+
+}

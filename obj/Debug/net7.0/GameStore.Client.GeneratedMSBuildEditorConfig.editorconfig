@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Components/AddContact.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BZGRDb250YWN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Components/Contacts.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Db250YWN0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -28,8 +32,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Mb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Components/LoginBtn.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Mb2dpbkJ0bi5yYXpvcg==
+[/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Components/Menu/BrandNameLink.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9NZW51L0JyYW5kTmFtZUxpbmsucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Components/Menu/LoginBtn.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9NZW51L0xvZ2luQnRuLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Components/Menu/MyContactBtn.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9NZW51L015Q29udGFjdEJ0bi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Components/Shared/CreateContactBtn.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaGFyZWQvQ3JlYXRlQ29udGFjdEJ0bi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Components/Shared/Loading.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaGFyZWQvTG9hZGluZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Pages/About.razor]
@@ -38,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Pages/MyContacts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTXlDb250YWN0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Shared/MainLayout.razor]

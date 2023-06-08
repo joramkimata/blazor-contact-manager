@@ -1,5 +1,5 @@
 ﻿@inherits LayoutComponentBase
-@using GameStore.Client.Components
+@using GameStore.Client.Components.Menu
 
 @using Blazored.Toast.Configuration
 @using GameStore.Client.Auth
@@ -10,7 +10,7 @@
                 ShowProgressBar="true"
                 IconType="IconType.FontAwesome"
                 SuccessClass="success-toast-override"
-                ErrorIcon="fa fa-bug" 
+                ErrorIcon="fa fa-bug"
                 SuccessIcon="fa fa-thumbs-up"/>
 
 <MudThemeProvider/>
@@ -19,16 +19,12 @@
 
 <MudLayout Style="position: relative">
     <MudAppBar Elevation="1" Color="Color.Dark">
-        <MudText Typo="Typo.h5" Class="ml-3">Contact Manager</MudText>
+        <BrandNameLink />
         <MudSpacer/>
-        <LoginBtn />
+        <MyContactBtn/>
+        <LoginBtn/>
     </MudAppBar>
     <MudMainContent Style="max-width: 1080px; margin: auto; margin-top: 20px; height: 100vh">
-        <AuthorizeView>
-            <Authorized>
-                <div>User: @AuthenticationStateProvider.Username</div>
-            </Authorized>
-        </AuthorizeView>
         @Body
     </MudMainContent>
 </MudLayout>

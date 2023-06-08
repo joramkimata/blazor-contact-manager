@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Security.Claims;
 using Blazored.LocalStorage;
 using GameStore.Client.Utils;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 
 namespace GameStore.Client.Auth;
@@ -12,15 +13,17 @@ public class MyAuthenticationStateProvider : AuthenticationStateProvider
     private readonly HttpClient _httpClient;
     private readonly AuthenticationDataMemoryStorage _authenticationDataMemoryStorage;
     private readonly ILocalStorageService _localStorageService;
+    private readonly NavigationManager _navigationManager;
 
     public string Username { get; set; } = "";
 
     public MyAuthenticationStateProvider(HttpClient httpClient,
-        AuthenticationDataMemoryStorage authenticationDataMemoryStorage, ILocalStorageService localStorageService)
+        AuthenticationDataMemoryStorage authenticationDataMemoryStorage, ILocalStorageService localStorageService, NavigationManager navigationManager)
     {
         _httpClient = httpClient;
         _authenticationDataMemoryStorage = authenticationDataMemoryStorage;
         _localStorageService = localStorageService;
+        _navigationManager = navigationManager;
 
         AuthenticationStateChanged += OnAuthenticationStateChanged;
     }
@@ -85,6 +88,7 @@ public class MyAuthenticationStateProvider : AuthenticationStateProvider
     {
         //_authenticationDataMemoryStorage.Token = "";
         await _localStorageService.ClearAsync();
+        _navigationManager.NavigateTo("/");
         NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
     }
 

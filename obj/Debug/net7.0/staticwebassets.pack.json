@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets/GameStore.Client.styles.css"
     },
     {
+      "Id": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/wwwroot/img/chat.png",
+      "PackagePath": "staticwebassets/img/chat.png"
+    },
+    {
+      "Id": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/wwwroot/img/contacts.gif",
+      "PackagePath": "staticwebassets/img/contacts.gif"
+    },
+    {
+      "Id": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/wwwroot/img/st.jpg",
+      "PackagePath": "staticwebassets/img/st.jpg"
+    },
+    {
       "Id": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/wwwroot/index.html",
       "PackagePath": "staticwebassets/index.html"
     },

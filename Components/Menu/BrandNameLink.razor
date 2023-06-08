@@ -1,0 +1,11 @@
+
+@inject NavigationManager NavigationManager
+
+<MudText Style="cursor: pointer" @onclick="HandleBrandNameClick" Typo="Typo.h5" Class="ml-3">Contact Manager</MudText>
+
+@code {
+    private void HandleBrandNameClick()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}

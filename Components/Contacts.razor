@@ -1,3 +1,4 @@
+@using GameStore.Client.Components.Shared
 
 @if (contactsData == null)
 {
@@ -15,10 +16,7 @@ else
     }
 }
 
+<CreateContactBtn />
 
-<AuthorizeView>
-    <Authorized>
-        <MudFab Style="position: absolute;bottom: 60px;right: 20px; " Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add"/>
-    </Authorized>
-</AuthorizeView>
+
 
