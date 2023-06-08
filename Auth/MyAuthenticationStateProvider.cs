@@ -1,6 +1,8 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http.Json;
 using System.Security.Claims;
+using Blazored.LocalStorage;
+using GameStore.Client.Utils;
 using Microsoft.AspNetCore.Components.Authorization;
 
 namespace GameStore.Client.Auth;
@@ -9,34 +11,44 @@ public class MyAuthenticationStateProvider : AuthenticationStateProvider
 {
     private readonly HttpClient _httpClient;
     private readonly AuthenticationDataMemoryStorage _authenticationDataMemoryStorage;
+    private readonly ILocalStorageService _localStorageService;
 
     public string Username { get; set; } = "";
 
     public MyAuthenticationStateProvider(HttpClient httpClient,
-        AuthenticationDataMemoryStorage authenticationDataMemoryStorage)
+        AuthenticationDataMemoryStorage authenticationDataMemoryStorage, ILocalStorageService localStorageService)
     {
         _httpClient = httpClient;
         _authenticationDataMemoryStorage = authenticationDataMemoryStorage;
+        _localStorageService = localStorageService;
 
         AuthenticationStateChanged += OnAuthenticationStateChanged;
     }
 
-    public override Task<AuthenticationState> GetAuthenticationStateAsync()
+    public override async Task<AuthenticationState> GetAuthenticationStateAsync()
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var identity = new ClaimsIdentity();
+        var token = await _localStorageService.GetItemAsync<String>(LocalStorageConstants.TokenKey);
+        var permissions = await _localStorageService.GetItemAsync<List<String>>(LocalStorageConstants.Permissions);
 
-        if (tokenHandler.CanReadToken(_authenticationDataMemoryStorage.Token))
+        if (tokenHandler.CanReadToken(token))
         {
-            var jwtSecurityToken = tokenHandler.ReadJwtToken(_authenticationDataMemoryStorage.Token);
+            var jwtSecurityToken = tokenHandler.ReadJwtToken(token);
             identity = new ClaimsIdentity(jwtSecurityToken.Claims, "Blazor");
         }
+
+        if (permissions != null)
+            foreach (var role in permissions)
+            {
+                identity.AddClaim(new Claim(ClaimTypes.Role, role));
+            }
 
         var principal = new ClaimsPrincipal(identity);
         var authenticationState = new AuthenticationState(principal);
         var authenticationTask = Task.FromResult(authenticationState);
 
-        return authenticationTask;
+        return await authenticationTask;
     }
 
     public async Task<bool> LoginAsync(string username, string password)
@@ -50,15 +62,29 @@ public class MyAuthenticationStateProvider : AuthenticationStateProvider
 
         var tokenResponse = await response.Content.ReadFromJsonAsync<TokenResponse>();
 
-        if (tokenResponse is not { token: not null }) return false;
-        _authenticationDataMemoryStorage.Token = tokenResponse.token;
+        if (tokenResponse is not { access_token: not null }) return false;
+
+        //_authenticationDataMemoryStorage.Token = tokenResponse.access_token;
+        //_authenticationDataMemoryStorage.Permissions = tokenResponse.permissions;
+
+        if (!await _localStorageService.ContainKeyAsync(LocalStorageConstants.TokenKey))
+        {
+            await _localStorageService.SetItemAsync(LocalStorageConstants.TokenKey, tokenResponse.access_token);
+        }
+
+        if (!await _localStorageService.ContainKeyAsync(LocalStorageConstants.Permissions))
+        {
+            await _localStorageService.SetItemAsync(LocalStorageConstants.Permissions, tokenResponse.permissions);
+        }
+
         NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         return true;
     }
 
-    public void Logout()
+    public async void Logout()
     {
-        _authenticationDataMemoryStorage.Token = "";
+        //_authenticationDataMemoryStorage.Token = "";
+        await _localStorageService.ClearAsync();
         NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
     }
 
@@ -66,36 +92,13 @@ public class MyAuthenticationStateProvider : AuthenticationStateProvider
     {
         var authenticationState = await task;
 
-        if (authenticationState is not null)
         {
             var userClaims = authenticationState.User.Claims;
-            var userIdClaim = userClaims.FirstOrDefault(c => c.Type == "userId");
-            var iatClaim = userClaims.FirstOrDefault(c => c.Type == "iat");
-            var expClaim = userClaims.FirstOrDefault(c => c.Type == "exp");
-
-            int userId = 0;
-            int iat = 0;
-            int exp = 0;
-
-            if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int parsedUserId))
-            {
-                userId = parsedUserId;
-            }
-
-            if (iatClaim != null && int.TryParse(iatClaim.Value, out int parsedIat))
-            {
-                iat = parsedIat;
-            }
-
-            if (expClaim != null && int.TryParse(expClaim.Value, out int parsedExp))
-            {
-                exp = parsedExp;
-            }
-
-            // Use the extracted values as needed
-            Console.WriteLine($"userId: {userId}");
-            Console.WriteLine($"iat: {iat}");
-            Console.WriteLine($"exp: {exp}");
+            var roleClaimType = ClaimTypes.Role;
+            var roles = userClaims
+                .Where(c => c.Type == roleClaimType)
+                .Select(c => c.Value)
+                .ToList();
         }
     }
 

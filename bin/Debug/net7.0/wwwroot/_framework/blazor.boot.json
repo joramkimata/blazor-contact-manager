@@ -7,6 +7,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
+      "Blazored.LocalStorage.dll": "sha256-eXVgTw72kEn74FZgDQbLtvAmXbiZDSj5gzUnxVmwowQ=",
       "Blazored.Toast.dll": "sha256-6wGoA8FmxkQCTFIXEM+U+Y2kJJnSTJXRYwuByAUPWGU=",
       "GraphQL.dll": "sha256-1kkdboGrCFHhXQ3q76KI5U5mS+Z9xQLm6SYHx0+ZV5A=",
       "GraphQLParser.dll": "sha256-IK\/TiGaCzwO7dENyWh3o0hCWkm5VMDWcpJmBGz9X\/Xc=",
@@ -215,13 +216,13 @@
       "mscorlib.dll": "sha256-qqpKd+W+AFb6UxudEYEKzrz7ma81p5LrWUwPBVvHV4U=",
       "netstandard.dll": "sha256-OYYuPT3JUknj4LdYIa58zF7kDB3tCnLzjCSuhEjtKXM=",
       "System.Private.CoreLib.dll": "sha256-EVS7zPxPV\/41g2mzPwdXtwiigWxI\/SeAHme1IgyD6tc=",
-      "GameStore.Client.dll": "sha256-6gRQ6Nvv2VLKcl+IL+ut8bcSDfiimzzJW23TGoCalJM="
+      "GameStore.Client.dll": "sha256-uiEgmIep\/F+2lF88ESvry2182mI9oRgbl6dVwCjk9gw="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "GameStore.Client.pdb": "sha256-9tBWOVVKd3gvEoPWbdeuOFz9Km3BISk6evzAWldF8es="
+      "GameStore.Client.pdb": "sha256-qZ\/jjBqjjx0cwv9sF8AG1ErgNOW5nr3oJEuWa5QXk7E="
     },
     "runtime": {
       "dotnet.7.0.5.0kpwwskuoz.js": "sha256-codB25EodaFEP43MDCfMBuKXU4LqurUKnQrpoMIFnPs=",

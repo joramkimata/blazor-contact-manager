@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Mb2dpbkJ0bi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Pages/About.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWJvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

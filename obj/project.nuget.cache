@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4y3uSoOAs+R2Iq7RQ4TUIHweBKkq7YiqXAGY3mU4lquIx22LcG1wfFryB5JYUOb0EEiPgki3h0pQAeSxKsFlDA==",
+  "dgSpecHash": "S/8e3UBskHckg0LJzUUeviOxLE8Nrfn1VGPUjUcBMjeIxVf45SM/yqR1GoMEw35ZfAqqL3vHZuxpSbUwFYIN9Q==",
   "success": true,
   "projectFilePath": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/GameStore.Client.csproj",
   "expectedPackageFiles": [
+    "/home/developer/.nuget/packages/blazored.localstorage/4.3.0/blazored.localstorage.4.3.0.nupkg.sha512",
     "/home/developer/.nuget/packages/blazored.toast/4.1.0/blazored.toast.4.1.0.nupkg.sha512",
     "/home/developer/.nuget/packages/graphql/7.4.1/graphql.7.4.1.nupkg.sha512",
     "/home/developer/.nuget/packages/graphql-parser/8.3.0/graphql-parser.8.3.0.nupkg.sha512",

@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using Blazored.Toast;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -18,6 +19,8 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddMudServices();
 
 builder.Services.AddBlazoredToast();
+
+builder.Services.AddBlazoredLocalStorage();
 
 builder.Services.AddScoped<AuthenticationDataMemoryStorage>();
 builder.Services.AddScoped<MyAuthenticationStateProvider>();

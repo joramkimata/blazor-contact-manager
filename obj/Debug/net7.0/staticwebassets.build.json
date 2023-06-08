@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uaiTGHCGR/b96UwUJyeg6v0O4rAD03ioR7rStJbQlSA=",
+  "Hash": "7Rkh1kjwy0mLkX/Kzk1JlpfBPFY0kjRjx73ye3vTFFs=",
   "Source": "GameStore.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/developer/.nuget/packages/microsoft.aspnetcore.components.webassembly/7.0.5/build/net7.0/blazor.webassembly.js"
+    },
+    {
+      "Identity": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/wwwroot/_framework/Blazored.LocalStorage.dll",
+      "SourceId": "GameStore.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.LocalStorage.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/home/developer/.nuget/packages/blazored.localstorage/4.3.0/lib/net7.0/Blazored.LocalStorage.dll"
     },
     {
       "Identity": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/wwwroot/_framework/Blazored.Toast.dll",
@@ -4180,6 +4197,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/wwwroot/_framework/Microsoft.Extensions.FileProviders.Physical.dll"
+    },
+    {
+      "Identity": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/obj/Debug/net7.0/build-gz/5mSLitJI.gz",
+      "SourceId": "GameStore.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.LocalStorage.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/wwwroot/_framework/Blazored.LocalStorage.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/wwwroot/_framework/Blazored.LocalStorage.dll"
     },
     {
       "Identity": "/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/obj/Debug/net7.0/build-gz/5yX0cRUt.gz",

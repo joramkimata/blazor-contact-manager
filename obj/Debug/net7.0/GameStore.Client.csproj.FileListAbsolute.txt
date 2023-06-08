@@ -891,3 +891,7 @@
 /home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/wwwroot/_framework/Blazored.Toast.dll.gz
 /home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/Blazored.Toast.dll
 /home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/obj/Debug/net7.0/build-gz/6eWrAVEV.gz
+/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/wwwroot/_framework/Blazored.LocalStorage.dll
+/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/wwwroot/_framework/Blazored.LocalStorage.dll.gz
+/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/bin/Debug/net7.0/Blazored.LocalStorage.dll
+/home/developer/Projects/IZWEB/learning-blazor-wasm/GameStore/GameStore.Client/obj/Debug/net7.0/build-gz/5mSLitJI.gz
