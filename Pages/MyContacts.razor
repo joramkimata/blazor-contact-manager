@@ -1,17 +1,33 @@
 @using GameStore.Client.Components.Shared
+@using GameStore.Client.Data
 
 @page "/my-contacts"
 
 
-<MudTable Items="@Contacts" Hover="true" Bordered="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
+<MudTable Items="@Contacts" Hover="true" Dense="true" Filter="new Func<Contact, bool>(FilterFunc1)" Striped="true" Bordered="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">My Contacts</MudText>
+        <MudSpacer/>
+        <MudTextField Immediate="true" @bind-Value="term" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+    </ToolBarContent>
     <HeaderContent>
         <MudTh>Phone Number</MudTh>
         <MudTh>Is Public</MudTh>
+        <MudTh>Actions</MudTh>
     </HeaderContent>
     <RowTemplate>
         <MudTd DataLabel="Phone Number">@context.phoneNumber</MudTd>
         <MudTd DataLabel="Is Public">@context.isPublic</MudTd>
+        <MudTd DataLabel="Actions">
+            <MudIconButton Icon="@Icons.Material.Filled.DocumentScanner" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small" />
+            <MudIconButton Icon="@Icons.Material.Filled.Edit" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small"/>
+            <MudIconButton Icon="@Icons.Material.Filled.Delete" Variant="Variant.Filled" Color="Color.Error" Size="Size.Small"/>
+
+        </MudTd>
     </RowTemplate>
+    <PagerContent>
+        <MudTablePager/>
+    </PagerContent>
 </MudTable>
 
 
